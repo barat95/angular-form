@@ -1,0 +1,208 @@
+<div class="container-fluid" style="border-bottom: 1px solid; padding: 2%">
+  <div class="row">
+    <div class="col-md-8">
+      <h4><strong>SOL</strong></h4>
+    </div>
+    <div class="col-md-4">
+      <h4>Already Using?<a href="#">SignIn</a></h4>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <style>
+    .m-3 {
+      margin: 8%;
+    }
+  </style>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h1>
+        <strong>Create an <br />account</strong>
+      </h1>
+      <span style="font-size: 25px"
+        ><i class="fa fa-shield" style="margin-right: 3%"></i>Secure Payments
+        through reliable partners
+      </span>
+      <br />
+      <div class="m-3"></div>
+      <span style="font-size: 25px"
+        ><i class="fa fa-bolt" style="margin-right: 3%"></i>Fast transfer</span
+      >
+      <br />
+      <div class="m-3"></div>
+      <span style="font-size: 25px"
+        ><i class="fa fa-percent" style="margin-right: 3%"></i>Fair
+        Commissions</span
+      >
+      <br />
+      <div class="m-3"></div>
+      <span style="font-size: 25px"
+        ><i class="fa fa-bolt" style="margin-right: 3%"></i>Best avaiable
+        rates</span
+      >
+
+      <br />
+      <div class="m-3"></div>
+      <span style="font-size: 25px"
+        ><i class="fa fa-thumbs-o-up" style="margin-right: 3%"></i
+        >Convenience</span
+      >
+      <br />
+    </div>
+    <div class="col-md-4 mx-auto">
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            formControlName="name"
+            class="form-control"
+            id="floatingPassword"
+          />
+          <label for="floatingPassword">FirstName</label>
+          <span
+            class="text-danger"
+            *ngIf="
+              (registerFormControl.name.touched || submitted) &&
+              registerFormControl.name.errors?.required
+            "
+          >
+            FirstName is required
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            formControlName="email"
+          />
+          <label for="floatingEmail">Email</label>
+          <span
+            class="text-danger"
+            *ngIf="
+              (registerFormControl.email.touched || submitted) &&
+              registerFormControl.email.errors?.required
+            "
+          >
+            Email is required
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="
+              registerFormControl.email.touched &&
+              registerFormControl.email.errors?.email
+            "
+          >
+            Enter a valid email address
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="username" />
+          <label for="floatingEmail">User Name</label>
+          <span
+            class="text-danger"
+            *ngIf="
+              (registerFormControl.username.touched || submitted) &&
+              registerFormControl.username.errors?.required
+            "
+          >
+            User Name is required
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="
+              registerFormControl.username.touched &&
+              registerFormControl.username.errors?.userNameNotAvailable
+            "
+          >
+            User Name is not available
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            formControlName="password"
+          />
+          <label for="floatingPasswoord">Password</label>
+          <span
+            class="text-danger"
+            *ngIf="
+              (registerFormControl.password.touched || submitted) &&
+              registerFormControl.password.errors?.required
+            "
+          >
+            Password is required
+          </span>
+          <span
+            class="text-danger"
+            data-bs-toggle="popover"
+            title="Popover title"
+            data-bs-content="And here's some amazing content. It's very engaging. Right?"
+            *ngIf="
+              registerFormControl.password.touched &&
+              registerFormControl.password.errors?.invalidPassword
+            "
+          >
+            Password should have minimum 8 characters, at least 1 uppercase
+            letter, 1 lowercase letter and 1 number
+          </span>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            formControlName="confirmPassword"
+          />
+          <label for="floatingPasswoord">Confrim Password</label>
+          <span
+            class="text-danger"
+            *ngIf="
+              (registerFormControl.confirmPassword.touched || submitted) &&
+              registerFormControl.confirmPassword.errors?.required
+            "
+          >
+            Confirm Password is required
+          </span>
+          <span
+            class="text-danger"
+            *ngIf="
+              registerFormControl.confirmPassword.touched &&
+              registerFormControl.confirmPassword.errors?.passwordMismatch
+            "
+          >
+            Passwords doesnot match
+          </span>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input
+            class="form-control"
+            id="date"
+            name="date"
+            placeholder="MM/DD/YYY"
+            type="datetime-local"
+          />
+        </div>
+
+        <div class="form-group d-grid gap-2">
+          <button type="submit" class="btn btn-primary">SignUp</button>
+        </div>
+
+        <div class="form-check mt-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckChecked"
+            checked
+          />
+          <label class="form-check-label" for="flexCheckChecked">
+            I agree to our team conditions and private policy
+          </label>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
